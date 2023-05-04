@@ -1,0 +1,15 @@
+﻿{
+  "Id": "92rpdiNuNUOnJ31tHmfvzA",
+  "Reference": "MbQ8UCSYXEiJAKUWhvjRoA/92rpdiNuNUOnJ31tHmfvzA",
+  "Name": "NewApplication",
+  "Description": "HWHomework",
+  "Type": "App",
+  "Created": "2023-05-03T14:32:37.5930794Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=23.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "Updated": "2023-05-03T14:32:38.7826247Z",
+  "UpdatedBy": [
+    "UiPath.Platform, Version=23.4.1.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
