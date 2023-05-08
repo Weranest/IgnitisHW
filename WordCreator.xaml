@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1874,2312</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1874,2531</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>WordCreator_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,7 +116,7 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WordCreator" sap:VirtualizedContainerService.HintSize="688,2247" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WordCreator" sap:VirtualizedContainerService.HintSize="688,2466" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="TestTable" />
       <Variable x:TypeArguments="x:Boolean" Name="Exists" />
@@ -128,7 +128,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap2010:Annotation.AnnotationText="Creates a folder inside the assigned work folder" sap:VirtualizedContainerService.HintSize="626,113" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap2010:Annotation.AnnotationText="Creates a folder inside the assigned work folder that will contain files on the band currently being processed, for sanitization purposes." sap:VirtualizedContainerService.HintSize="626,124" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[SpecificFolder]</OutArgument>
       </Assign.To>
@@ -141,34 +141,45 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="626,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[SpecificFolder]" />
-    <Assign sap:VirtualizedContainerService.HintSize="626,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" sap2010:Annotation.AnnotationText="" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="626,111" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[SpecificFolder]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CreateDirectory>
+    <Assign sap2010:Annotation.AnnotationText="Word file is created inside the sanitized folder.&#xD;&#xA;" sap:VirtualizedContainerService.HintSize="626,124" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[Word]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">[SpecificFolder+BandName+".docx"]</InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <p:WordApplicationScope DisplayName="Word Application Scope" FilePath="[Word]" sap:VirtualizedContainerService.HintSize="626,1366" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
+    <p:WordApplicationScope sap2010:Annotation.AnnotationText="This loop downloads the images from the datatable of the specified band, and puts it together with the hyperlinks into the word document named.&#xD;&#xA;&#xD;&#xA;" DisplayName="Word Application Scope" FilePath="[Word]" sap:VirtualizedContainerService.HintSize="626,1439" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
       <p:WordApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WordDocument">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,1256" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,1257" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[SongSet]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="530,1145" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[SongSet]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="530,1146" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,1030" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,1031" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="Image" />
                       <Variable x:TypeArguments="x:String" Name="ImageFile" />
@@ -193,7 +204,7 @@
                         </InArgument>
                       </ui:Replace.Replacement>
                     </ui:Replace>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[Image]</OutArgument>
                       </Assign.To>
@@ -227,14 +238,30 @@
           </Sequence>
         </ActivityAction>
       </p:WordApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </p:WordApplicationScope>
-    <uascw:CompressFiles CompressedFileInfo="{x:Null}" CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" CodePage="Default" CompressedFileName="[WorkFolderPath+BandName+&quot;.zip&quot;]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="626,215" sap2010:WorkflowViewState.IdRef="CompressFiles_2" OverrideExistingFile="False">
+    <uascw:CompressFiles CompressedFileInfo="{x:Null}" CompressedResource="{x:Null}" Password="{x:Null}" ResourcesToArchive="{x:Null}" SecurePassword="{x:Null}" sap2010:Annotation.AnnotationText="Creates the required zip files from the files" CodePage="Default" CompressedFileName="[WorkFolderPath+BandName+&quot;.zip&quot;]" CompressionLevel="Normal" DisplayName="Compress/Zip Files" EncryptionAlgorithm="Classic" sap:VirtualizedContainerService.HintSize="626,246" sap2010:WorkflowViewState.IdRef="CompressFiles_2" OverrideExistingFile="False">
       <uascw:CompressFiles.ContentToArchive>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="1">
           <InArgument x:TypeArguments="x:String">[SpecificFolder]</InArgument>
         </scg:List>
       </uascw:CompressFiles.ContentToArchive>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </uascw:CompressFiles>
-    <ui:DeleteFolderX DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="626,80" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[SpecificFolder]" Recursive="True" />
+    <ui:DeleteFolderX sap2010:Annotation.AnnotationText="Deletes the folder which contained the transaction files" DisplayName="Delete Folder" sap:VirtualizedContainerService.HintSize="626,111" sap2010:WorkflowViewState.IdRef="DeleteFolderX_1" Path="[SpecificFolder]" Recursive="True">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:DeleteFolderX>
   </Sequence>
 </Activity>

@@ -10,11 +10,13 @@ The purpose of this package is to be able to parse an excel list called "Grupės
  2. Create a "Grupės.xlsx" file that contains one collumn named "Pavadinimas". Insert the search terms needed inside the collumn.
  3. Change the desired settings and variables inside the "Config.xlsx", found inside the Data folder, for the dollowing settings:
 
- 	+ MasterfilePath - Path to the "Grupės.xlsx" file
  	+ WorkFolderPath - Path to the work folder used to store files (the program will create a new folder inside the selected path and will not interact with any other file present in the path)
  	+ EmailTo - Email address that is to be used as the recipient of the zip files at the end of the process
- 	+ MaxVideoLength - Maximum length of videos to be included in the final output. When parsed, videos with higher values than the one here will not be parsed
  	+ SongsPerBand - Number of songs to be included in each search results final output
+ 	+ MasterfilePath - Path to the "Grupės.xlsx" file
+	+ MaxVideoLength - REQUIRED format: hh:mm:ss ///// Maximum length of videos to be included in the final output. When parsed, videos with higher values than the one here will not be parsed
+	+ MaxVideosParsed (not used currently) - Maximum videos parsed for each band. Higher numbers are possibly more prone to breaking and take longer, but are more likely to return the correct amount of videos requested
+
 
  4. Run through studio or publish as a package. Since the assets are modified directly through config, and not orchestrator, publishing will lock out the edditing of said assets.
 
@@ -44,4 +46,4 @@ The purpose of this package is to be able to parse an excel list called "Grupės
 ### Known issues ###
 
 * Project currently only supports Chrome for browsing youtube
-* Issues with possible hangups when parsing image urls 
+* MaxVideosParsed currently does nothing - youtube parsing breaks when loading more than roughly 20 ids, will be a future fix

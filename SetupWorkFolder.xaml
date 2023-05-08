@@ -3,7 +3,7 @@
     <x:Property Name="WorkFolderPathFixed" Type="OutArgument(x:String)" />
     <x:Property Name="WorkFolderPath" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1874,1381</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1728,1511</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -95,23 +95,26 @@
       <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="572,1316" sap2010:WorkflowViewState.IdRef="Sequence_14">
+  <Sequence sap2010:Annotation.AnnotationText="" sap:VirtualizedContainerService.HintSize="572,1568" sap2010:WorkflowViewState.IdRef="Sequence_14">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="WorkFolderName">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">IgnitisHW\</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="IgnitisHW\" Name="WorkFolderName" />
       <Variable x:TypeArguments="x:Boolean" Name="FolderExists" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[WorkFolderPath.Chars(WorkFolderPath.Length-1)=&quot;\&quot;]" sap:VirtualizedContainerService.HintSize="510,522" sap2010:WorkflowViewState.IdRef="If_2">
+    <If sap2010:Annotation.AnnotationText="Sanitizes the folder name from config for easier process handling, and changes the work folder used by the rest of the processes to use a folder that should not be in use by anything else already to prevent data destruction." Condition="[WorkFolderPath.Chars(WorkFolderPath.Length-1)=&quot;\&quot;]" sap:VirtualizedContainerService.HintSize="510,579" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
@@ -124,7 +127,7 @@
               <OutArgument x:TypeArguments="x:String">[WorkFolderPathFixed]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[WorkFolderPath+WorkFolderName]</InArgument>
+              <InArgument x:TypeArguments="x:String">[WorkFolderPath]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -141,14 +144,27 @@
               <OutArgument x:TypeArguments="x:Object">[WorkFolderPathFixed]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:Object">[WorkFolderPath+"\"+WorkFolderName]</InArgument>
+              <InArgument x:TypeArguments="x:Object">[WorkFolderPath+"\"]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
       </If.Else>
     </If>
+    <Assign sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[WorkFolderPathFixed]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[WorkFolderPathFixed+WorkFolderName]</InArgument>
+      </Assign.Value>
+    </Assign>
     <ui:FolderExistsX DisplayName="Folder Exists" Exists="[FolderExists]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[WorkFolderPathFixed]" />
-    <If Condition="[FolderExists]" sap:VirtualizedContainerService.HintSize="510,350" sap2010:WorkflowViewState.IdRef="If_3">
+    <If sap2010:Annotation.AnnotationText="If the sanitized work folder already exists, this deletes it to prevent file cross contamination." Condition="[FolderExists]" sap:VirtualizedContainerService.HintSize="510,392" sap2010:WorkflowViewState.IdRef="If_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>

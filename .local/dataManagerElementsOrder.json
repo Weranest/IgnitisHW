@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "Browser&StateMachine_1",
         "WorkFolderPath&StateMachine_1",
         "WorkPathFolder&Sequence_4",
         "TransactionItem&StateMachine_1",
@@ -62,6 +63,7 @@
         "SongSet&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "in_Browser",
         "in_WorkFolderPath",
         "in_TransactionItem",
         "in_Config"
@@ -138,6 +140,7 @@
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
       "ArgumentsSectionElementsOrder": [
+        "in_Browser",
         "in_TransactionNumber",
         "in_Config",
         "out_TransactionItem",
@@ -156,6 +159,7 @@
         "WorkFolderName&Sequence_9"
       ],
       "ArgumentsSectionElementsOrder": [
+        "out_Browser",
         "out_WorkFolderPath",
         "in_Config"
       ],
@@ -166,7 +170,9 @@
       "Path": "Framework/CloseAllApplications.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "Browser"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
@@ -182,6 +188,8 @@
         "videoID&Sequence_2"
       ],
       "ArgumentsSectionElementsOrder": [
+        "Browser",
+        "MaxVideosParsed",
         "SongsPerBand",
         "SongSet",
         "MaxVideoLength",
@@ -194,6 +202,10 @@
       "Path": "WordCreator.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "ImageFile&Sequence_4",
+        "Word&Sequence_1",
+        "SpecificFolder&Sequence_1",
+        "Image&Sequence_4",
         "Exists&Sequence_1",
         "TestTable&Sequence_1"
       ],
@@ -237,6 +249,19 @@
       "ArgumentsSectionElementsOrder": [
         "WorkFolderPath",
         "WorkFolderPathFixed"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "SendEmail.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "FileList&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "WorkFolderPath",
+        "EmailTo"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

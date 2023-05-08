@@ -2,11 +2,12 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_WorkFolderPath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Browser" Type="OutArgument(ui:UiElement)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1874,936</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1874,935</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,7 +109,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="546,871" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="546,870" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="IgnitisHW" Name="WorkFolderName" />
     </Sequence.Variables>
@@ -118,7 +119,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="484,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+    <Assign sap:VirtualizedContainerService.HintSize="484,81" sap2010:WorkflowViewState.IdRef="Assign_4">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[WorkFolderName]</OutArgument>
       </Assign.To>
@@ -129,15 +130,11 @@
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="484,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SetupWorkFolder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="484,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SetupWorkFolder.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:String" x:Key="WorkFolderPathFixed">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_WorkFolderPath" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="WorkFolderPath">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;WorkFolderPath&quot;).ToString" />
-        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="WorkFolderPathFixed">[out_WorkFolderPath]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="WorkFolderPath">[in_Config("WorkFolderPath").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: (106) YouTube" sap:VirtualizedContainerService.HintSize="484,322" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="7e86b3d2-0c4b-4eaa-929a-7104b5e94f77" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: (106) YouTube" sap:VirtualizedContainerService.HintSize="484,322" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OutUiElement="[out_Browser]" ScopeGuid="7e86b3d2-0c4b-4eaa-929a-7104b5e94f77" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
