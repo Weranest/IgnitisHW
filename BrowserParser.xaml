@@ -7,7 +7,7 @@
     <x:Property Name="MaxVideosParsed" Type="InArgument(x:Int32)" />
     <x:Property Name="Browser" Type="InArgument(ui:UiElement)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1874,4330</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1874,4329</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -127,14 +127,14 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Process used to parse information on videos based on the input search term, and store them in a temporary datatable to be passed to other processes. " sap:VirtualizedContainerService.HintSize="926,4265" sap2010:WorkflowViewState.IdRef="Sequence_12">
+  <Sequence sap2010:Annotation.AnnotationText="Process used to parse information on videos based on the input search term, and store them in a temporary datatable to be passed to other processes. " sap:VirtualizedContainerService.HintSize="926,4264" sap2010:WorkflowViewState.IdRef="Sequence_12">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="864,4123" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="864,4122" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Default="1" Name="Name" />
         <Variable x:TypeArguments="x:String" Default="1" Name="Src" />
@@ -152,13 +152,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:BuildDataTable>
-      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Opens the browser to search for. Skips manually inputing the search phrase into the youtube search bar and opts to do it into the url directly." AttachMode="ByInstance" DisplayName="Use Browser Chrome: (103) YouTube" sap:VirtualizedContainerService.HintSize="802,3840" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[Browser]" InteractionMode="DebuggerApi" ScopeGuid="5266c6d2-82c5-4796-b97e-750576f8b254" Version="V2">
+      <uix:NApplicationCard sap2010:Annotation.AnnotationText="Opens the browser to search for. Skips manually inputing the search phrase into the youtube search bar and opts to do it into the url directly." AttachMode="ByInstance" DisplayName="Use Browser Chrome: (103) YouTube" sap:VirtualizedContainerService.HintSize="802,3839" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[Browser]" InteractionMode="DebuggerApi" ScopeGuid="5266c6d2-82c5-4796-b97e-750576f8b254" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="768,3672" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="768,3671" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="VideoLengthString" />
                 <Variable x:TypeArguments="x:TimeSpan" Name="VideoLength" />
@@ -170,17 +170,17 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="706,82" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[&quot;https://www.youtube.com/results?search_query=&quot;+BandName.Replace(&quot; &quot;,&quot;+&quot;)]" Version="V3" />
-              <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Runs the while loop while the amount of rows in the datatable &quot;SongSet&quot; is lower than the SongsPerBand variable (value decided by config) and if the amount of videos parsed is lower than the allowed amount." DisplayName="While" sap:VirtualizedContainerService.HintSize="706,3435" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+              <ui:InterruptibleWhile CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Runs the while loop while the amount of rows in the datatable &quot;SongSet&quot; is lower than the SongsPerBand variable (value decided by config) and if the amount of videos parsed is lower than the allowed amount." DisplayName="While" sap:VirtualizedContainerService.HintSize="706,3434" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
                 <ui:InterruptibleWhile.Body>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="670,3227" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="670,3226" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="608,3116" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
+                    <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="608,3115" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_3">
                       <ui:InterruptibleWhile.Body>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572,2950" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="572,2949" sap2010:WorkflowViewState.IdRef="Sequence_7">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -203,7 +203,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NGetAttributeGeneric>
-                          <Assign sap2010:Annotation.AnnotationText="In case the video length string has any spaces, which has occured with some videos, this normalises it so it doesn't contain any spaces" DisplayName="Remove whitespace from video length string" sap:VirtualizedContainerService.HintSize="510,124" sap2010:WorkflowViewState.IdRef="Assign_11">
+                          <Assign sap2010:Annotation.AnnotationText="In case the video length string has any spaces, which has occured with some videos, this normalises it so it doesn't contain any spaces" DisplayName="Remove whitespace from video length string" sap:VirtualizedContainerService.HintSize="510,123" sap2010:WorkflowViewState.IdRef="Assign_11">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[VideoLengthString]</OutArgument>
                             </Assign.To>
@@ -356,13 +356,13 @@
                         </Sequence>
                       </ui:InterruptibleWhile.Body>
                       <ui:InterruptibleWhile.Condition>
-                        <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="videoID&lt;MaxVideosParsed" />
+                        <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="videoID&lt;20" />
                       </ui:InterruptibleWhile.Condition>
                     </ui:InterruptibleWhile>
                   </Sequence>
                 </ui:InterruptibleWhile.Body>
                 <ui:InterruptibleWhile.Condition>
-                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="(SongSet.RowCount&lt;SongsPerBand) And (videoID&lt;MaxVideosParsed)" />
+                  <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="(SongSet.RowCount&lt;SongsPerBand) And (videoID&lt;20)" />
                 </ui:InterruptibleWhile.Condition>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
