@@ -1,14 +1,20 @@
+### Created by Eimantas Bernotavicius ###
 ### Documentation is included in the Documentation folder ###
 
 
-### REFrameWork Template ###
-**Robotic Enterprise Framework**
+### What it does ###
+The purpose of this package is to be able to parse an excel list called "Grupės.xlsx" and based on the contents of that list return zip files with information about the videos found by the youtube recommendations of the user using it.
 
-* Built on top of *Transactional Business Process* template
-* Uses *State Machine* layout for the phases of automation project
-* Offers high level logging, exception handling and recovery
-* Keeps external settings in *Config.xlsx* file
-* Takes screenshots in case of system exceptions
+### How to operate it ###
+1. * Program uses Chrome, Excel, Word and Outlook as part of required operations, as such the machine the program is used on should have all of those programs
+2. * Create a "Grupės.xlsx" file that contains one collumn named "Pavadinimas". Insert the search terms needed inside the collumn.
+3. * Change the desired settings and variables inside the "Config.xlsx", found inside the Data folder, for the dollowing settings:
+
+ + MasterfilePath - Path to the "Grupės.xlsx" file
+ + WorkFolderPath - Path to the work folder used to store files (the program will create a new folder inside the selected path and will not interact with any other file present in the path)
+ + EmailTo - Email address that is to be used as the recipient of the zip files at the end of the process
+ + MaxVideoLength - Maximum length of videos to be included in the final output. When parsed, videos with higher values than the one here will not be parsed
+ + SongsPerBand - Number of songs to be included in each search results final output
 
 
 ### How It Works ###
